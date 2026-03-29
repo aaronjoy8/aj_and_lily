@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Love Story</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════ -->
+  <nav id="nav">
+    <a href="#hero" class="nav-link active">Home</a>
+    <a href="#timeline" class="nav-link">Our Story</a>
+    <a href="#map" class="nav-link">Memory Map</a>
+    <a href="#letter" class="nav-link">For You</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="floating-hearts" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-prelude">A love story between</p>
+      <h1 class="hero-names">
+        <span id="partner1Name">Aaron</span>
+        <span class="ampersand">&amp;</span>
+        <span id="partner2Name">Lily</span>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-since">Together since <span id="sinceDate">January 1, 2023</span></p>
+      <div class="counter" id="counter">
+        <div class="counter-item">
+          <span class="counter-number" id="counterDays">0</span>
+          <span class="counter-label">Days</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="counterHours">0</span>
+          <span class="counter-label">Hours</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="counterMinutes">0</span>
+          <span class="counter-label">Minutes</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="counterSeconds">0</span>
+          <span class="counter-label">Seconds</span>
+        </div>
+      </div>
+      <a href="#timeline" class="scroll-cue">
+        <span>Explore Our Story</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TIMELINE SECTION
+       ═══════════════════════════════════════════════ -->
+  <section id="timeline">
+    <div class="section-header">
+      <p class="section-prelude">Every moment with you is a treasure</p>
+      <h2 class="section-title">Our Story</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline-container" id="timelineContainer">
+      <!-- Timeline entries are generated from config.js -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       MAP SECTION
+       ═══════════════════════════════════════════════ -->
+  <section id="map">
+    <div class="section-header">
+      <p class="section-prelude">The places that hold our favourite memories</p>
+      <h2 class="section-title">Our Memory Map</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div id="mapContainer"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       LOVE LETTER SECTION
+       ═══════════════════════════════════════════════ -->
+  <section id="letter">
+    <div class="letter-card animate-on-scroll">
+      <p class="letter-salutation" id="letterSalutation">My Dearest Lily,</p>
+      <div id="letterBody">
+        <p>Every day with you feels like a gift I never knew I needed. You are the first thought that greets me each morning and the last smile I carry into sleep.</p>
+        <p>This little corner of the internet is my way of holding onto every laugh, every quiet moment, every adventure we've shared — so that years from now, we can look back and remember exactly how it felt.</p>
+        <p>Thank you for choosing me. Thank you for being you.</p>
+      </div>
+      <p class="letter-closing">Forever yours,</p>
+      <p class="letter-signature" id="letterSignature">Aaron</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made with love, for the love of my life.</p>
+    <p class="footer-heart">♥</p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════
+       MEMORY POPUP MODAL (for map pins)
+       ═══════════════════════════════════════════════ -->
+  <div id="memoryModal" class="modal-overlay" role="dialog" aria-modal="true" hidden>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-photo" id="modalPhoto">
+        <!-- PHOTO: Replace src with your image -->
+      </div>
+      <div class="modal-body">
+        <h3 id="modalLocation"></h3>
+        <p class="modal-date" id="modalDate"></p>
+        <p class="modal-description" id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Site scripts -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
